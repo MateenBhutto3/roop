@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ROOP — Streetwear you can try on live</title>
+  <meta name="description" content="Streetwear with live AR try-on. See it on you before you buy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="tryon/tryon.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141412'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='800' font-size='17' fill='%23fff' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="announce">New: <b>Live try-on</b> — see any piece on you with your camera</div>
+  <header class="site">
+    <div class="wrap nav">
+      <a class="logo" href="index.html">ROOP<span>.</span></a>
+      <nav class="nav-links"><a class="on" href="#new">New in</a><a href="#new">Hoodies</a><a href="#new">Jackets</a><a href="#new">Shirts</a></nav>
+      <button class="bag" aria-label="Bag">Bag <span class="bag-count">0</span></button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Live AR try-on</span>
+        <h1>See it on <em>you</em> before you buy.</h1>
+        <p>Tap “Try it on”, allow your camera, and the piece appears on your body in real time — on your phone or laptop.</p>
+        <div class="hero-cta">
+          <button class="btn accent" data-hero-try>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+            Try the hoodie now
+          </button>
+          <a class="btn outline" href="#new">Shop new in</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/hoodie/front.png" alt="Contrast Trim Fleece Hoodie">
+        <div class="scan"></div>
+        <div class="hero-tag"><i></i>Body tracking · runs on your phone</div>
+      </div>
+    </section>
+
+    <section class="section" id="new">
+      <div class="section-head"><h2>New in</h2><a href="#new">View all</a></div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>How try-on works</h2></div>
+      <div class="steps">
+        <div class="step"><b>01</b><h3>Tap “Try it on”</h3><p>On any product with the live try-on badge.</p></div>
+        <div class="step"><b>02</b><h3>Allow your camera</h3><p>Stand back so your upper body is in view.</p></div>
+        <div class="step"><b>03</b><h3>Move around</h3><p>The piece follows your body and arms. Snap a photo to compare later.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site"><div class="wrap"><span>© ROOP Streetwear — demo store</span><span>Live try-on prototype</span></div></footer>
+  <script type="module" src="js/store.js"></script>
+</body>
+</html>

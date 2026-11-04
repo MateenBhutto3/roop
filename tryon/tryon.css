@@ -1,0 +1,86 @@
+.vto [hidden] { display: none !important; }
+html.vto-open, html.vto-open body { overflow: hidden; }
+.vto {
+  position: fixed; inset: 0; z-index: 9999; background: #000; color: #fff;
+  font-family: inherit; -webkit-tap-highlight-color: transparent;
+  height: 100dvh;
+}
+.vto-video { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.vto-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.vto-ring { position: relative; width: 64px; height: 64px; display: grid; place-items: center; }
+.vto-ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.vto-ring circle { fill: none; stroke: rgba(255,255,255,.18); stroke-width: 3; }
+.vto-ring .vto-ring-p { stroke: #fff; stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 119.4; transition: stroke-dashoffset .25s; }
+.vto-ring b { font-size: 13px; font-variant-numeric: tabular-nums; }
+.vto-loading.error .vto-ring { display: none; }
+.vto-loading .vto-btn { margin-top: 16px; }
+.vto-top {
+  position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between;
+  padding: max(14px, env(safe-area-inset-top)) 16px 14px;
+  background: linear-gradient(rgba(0,0,0,.55), transparent);
+}
+.vto-title { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; letter-spacing: .01em; }
+.vto-live {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  background: #e5484d; padding: 3px 8px; border-radius: 99px; display: inline-flex; align-items: center; gap: 5px;
+}
+.vto-live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: vto-pulse 1.4s infinite; }
+@keyframes vto-pulse { 50% { opacity: .3; } }
+
+.vto-icon {
+  width: 46px; height: 46px; border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer;
+  background: rgba(255,255,255,.16); color: #fff; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.vto-icon:active { transform: scale(.94); }
+
+.vto-bottom {
+  position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-evenly;
+  padding: 20px 16px max(22px, env(safe-area-inset-bottom));
+  background: linear-gradient(transparent, rgba(0,0,0,.6));
+}
+.vto-shutter {
+  width: 74px; height: 74px; border-radius: 50%; border: 4px solid #fff; background: transparent; padding: 4px; cursor: pointer;
+}
+.vto-shutter span { display: block; width: 100%; height: 100%; border-radius: 50%; background: #fff; transition: transform .1s; }
+.vto-shutter:active span { transform: scale(.88); }
+
+.vto-hint {
+  position: absolute; left: 50%; top: 76px; transform: translateX(-50%);
+  background: rgba(0,0,0,.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  padding: 9px 16px; border-radius: 99px; font-size: 14px; white-space: nowrap;
+}
+
+.vto-panel {
+  position: absolute; left: 16px; right: 16px; bottom: 130px; max-width: 420px; margin: 0 auto;
+  background: rgba(20,20,20,.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-radius: 18px; padding: 14px 18px; display: grid; gap: 12px;
+}
+.vto-panel label { display: grid; grid-template-columns: 64px 1fr; align-items: center; font-size: 14px; gap: 10px; }
+.vto-panel input[type=range] { width: 100%; accent-color: #fff; }
+
+.vto-loading {
+  position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 18px; text-align: center; padding: 24px;
+}
+.vto-loading p { margin: 0; font-size: 15px; max-width: 320px; line-height: 1.5; color: #ddd; }
+.vto-spin { width: 38px; height: 38px; border-radius: 50%; border: 3px solid rgba(255,255,255,.2); border-top-color: #fff; animation: vto-rot .8s linear infinite; }
+@keyframes vto-rot { to { transform: rotate(360deg); } }
+
+.vto-guide { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.55); padding: 24px; }
+.vto-guide-body {
+  background: #fff; color: #111; border-radius: 22px; padding: 26px 24px 22px; max-width: 330px; text-align: center;
+}
+.vto-guide-fig svg { width: 70px; height: 70px; fill: none; stroke: #111; stroke-width: 3; stroke-linecap: round; }
+.vto-guide h3 { margin: 6px 0 8px; font-size: 20px; }
+.vto-guide p { margin: 0 0 18px; color: #555; font-size: 14.5px; line-height: 1.5; }
+
+.vto-btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 22px; border-radius: 99px;
+  background: #111; color: #fff; border: 0; font: inherit; font-weight: 600; font-size: 15px; cursor: pointer; text-decoration: none;
+}
+.vto-guide .vto-btn { width: 100%; }
+.vto-btn.ghost { background: rgba(255,255,255,.16); }
+
+.vto-shot { position: absolute; inset: 0; background: #000; display: grid; grid-template-rows: 1fr auto; }
+.vto-shot img { width: 100%; height: 100%; object-fit: contain; min-height: 0; }
+.vto-shot-actions { display: flex; gap: 12px; justify-content: center; padding: 16px 16px max(20px, env(safe-area-inset-bottom)); }
+.vto-shot .vto-save { background: #fff; color: #111; }
